@@ -1,2 +1,2 @@
 #!/bin/bash
-grep  "^[a-A]" /etc/ssh/sshd_config
+grep  "^[a-Z]" /etc/ssh/sshd_config
