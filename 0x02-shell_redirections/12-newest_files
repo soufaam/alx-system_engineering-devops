@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -mtime 0 | nl | sort -nr | cut -d "/" -f 2 - | head -n 10
+ls -t | head -n 10
