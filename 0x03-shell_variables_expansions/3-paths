@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $p| tr ":" "\n" | grep "^\s*$" -vc
