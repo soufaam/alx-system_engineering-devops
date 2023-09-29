@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that displays its own PID.
+#shellcheck disable=SC2009
+ps -AH u | grep "4-to_infinity_and_beyond" | cut -d ' ' -f 2 |xargs kill -9
