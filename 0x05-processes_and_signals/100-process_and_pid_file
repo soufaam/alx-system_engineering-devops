@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Bash script that displays its own PID.
+#shellcheck disable=SC2009
+echo "$$" > /var/run/myscript.pid
+while :
+do 
+trap 'echo "I am invincible!!!"' SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'echo "I hate the kill command"; sudo rm /var/run/myscript.pid; exit 0' SIGTERM
+trap 'rm /var/run/myscript.pid; exit 0' SIGQUIT 
+echo "To infinity and beyond"
+sleep 2
+done
