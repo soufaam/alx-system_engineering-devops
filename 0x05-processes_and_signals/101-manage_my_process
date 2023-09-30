@@ -8,18 +8,18 @@ fi
 if [ -z "$1" ]; then
 	echo "Usage: manage_my_process {start|stop|restart}"
 elif [ "$1" == "start" ]; then
-	echo "$$" > /var/run/myscript.pid
+	echo "$$" > /var/run/my_process.pid
 	./manage_my_process &
 	echo "manage_my_process started"
 elif [ "$1" == "stop" ]; then
 	pkill -f ./manage_my_process
-	rm /var/run/my_process.pid
+	rm/var/run/my_process.pid
 	echo "manage_my_process stopped"
 elif [ "$1" == "restart" ]; then
 	pkill -f ./manage_my_process
 	rm /var/run/my_process.pid
 	./manage_my_process &
-	echo "$$" > /var/run/myscript.pid
+	echo "$$" > /var/run/my_process.pid
 	echo "manage_my_process restarted"
 else
 	echo "Usage: manage_my_process {start|stop|restart}"
