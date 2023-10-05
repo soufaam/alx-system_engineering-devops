@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 0. Change your home IP
 cp /etc/hosts ~/hosts.new
-sudo sed -i '/\bfacebook\b/ s/\b[0-9]\+\(\.[0-9]\+\)\{3\}\b/8.8.8.8/' /etc/hosts
-sudo sed -i '/\localhost\b/ s/\b[0-9]\+\(\.[0-9]\+\)\{3\}\b/127.0.0.2/' /etc/hosts
+sudo sed -i '/\bfacebook\b/ s/\b[0-9]\+\(\.[0-9]\+\)\{3\}\b/8.8.8.8/' ~/hosts.new 
+sudo sed -i '/\localhost\b/ s/\b[0-9]\+\(\.[0-9]\+\)\{3\}\b/127.0.0.2/' ~/hosts.new 
 cp -f ~/hosts.new /etc/hosts
