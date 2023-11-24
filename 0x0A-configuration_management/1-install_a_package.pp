@@ -5,7 +5,7 @@ ensure  => 'installed',
 exec { 'install_werkzeug':
 command => '/usr/bin/pip3 install Werkzeug==2.1.1',
 path    => '/usr/local/bin:/usr/bin',
-creates => '/usr/local/lib/python3.x/dist-packages/Werkzeug-2.1.1.dist-info',
+creates => '/usr/local/lib/python3.8/dist-packages/Werkzeug-2.1.1.dist-info',
 require => Package['python3-pip'],
 }
 
