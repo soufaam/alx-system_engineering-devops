@@ -50,7 +50,6 @@ Host *
     HashKnownHosts yes
     GSSAPIAuthentication yes
 HOST 389038-web-01
-    Hostname 34.202.159.132
     User ubuntu
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
