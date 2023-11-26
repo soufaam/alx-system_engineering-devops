@@ -4,12 +4,11 @@ file { '/etc/ssh/ssh_config':
   content => "
 Host 389038-web-01
     HostName 54.152.81.82
-    User ubunut
+    User ubuntu
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
   ",
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
-  notify  => Service['sshd'], # Restart SSH service when the configuration file changes
 }
