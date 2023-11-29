@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # 0. Give me a page!
-sudo docker exec elastic_euler apache2ctl start
+id_container=$(sudo docker ps --filter "publish=8080" --format "{{.ID}}")
+sudo docker exec $id_container service apache2 start
