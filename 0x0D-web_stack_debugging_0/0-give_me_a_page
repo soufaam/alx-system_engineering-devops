@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # 0. Give me a page!
 id_container=$(sudo docker ps --filter "publish=8080" --format "{{.ID}}")
-sudo docker exec  -d -it "$id_container" service apache2 start
+sudo docker exec  -d "$id_container" service apache2 start
+sudo docker exec  "$id_container" service apache2 status
+
