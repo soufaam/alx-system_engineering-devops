@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Transfer a file to your server
+add_header="\n\tadd_header X-Served-By $(hostname);"
+sed -i '/server {/ s/$/ '"$add_header"'/' /etc/nginx/sites-available/default
+service nginx restart
