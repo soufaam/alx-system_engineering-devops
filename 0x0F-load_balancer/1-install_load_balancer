@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Transfer a file to your server
+sudo apt update 
+sudo apt install haproxy -y
+mv /etc/haproxy/haproxy.cfg{,.original}
+sudo bash -c 'cat > /etc/haproxy/haproxy.cfg <<EOF
+global
+	log 127.0.0.1 local0 notice
+	maxconn 2000
+	user haproxy
+	group haproxy
+	daemon
+
+defaults
+	log     global
+	mode    http
+	option  httplog
+	option  dontlognull
+	retries 3
+	option redispatch
+	timeout connect  5000
+	timeout client  10000
+	timeout server  10000
+
+frontend http_front
+    bind *:80
+    mode http
+    default_backend http_back
+
+backend http_back
+	balance roundrobin
+	option httpclose
+	option forwardfor
+	server 389038-web-01 54.152.81.82:80 check
+	server 389038-web-02 3.94.185.211:80 check
+EOF'
+sudo service haproxy restart
