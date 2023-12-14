@@ -4,7 +4,7 @@ if [ $# = 2 ]; then
 subdomain="$2.$1"
 ip=$(dig "$subdomain"  | awk ' NR==14 {print $5}')
 record=$(dig "$subdomain" | awk 'NR==14 {print $4}')
-echo "The subdomain $2 is a $record and points to $ip"
+echo "The subdomain $2 is a record $record and points to $ip"
 else
 subs=(www lb-01 web-01 web-02)
 for item in "${subs[@]}"; do
