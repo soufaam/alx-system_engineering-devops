@@ -2,4 +2,6 @@
 # Nginx installation from listening on port 80
 sudo apt update
 sudo apt install nginx -y
+sudo service  nginx stop
+sudo service  nginx start
 sudo service  nginx restart
