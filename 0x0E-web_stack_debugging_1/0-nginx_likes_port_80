@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # Nginx installation from listening on port 80
-sudo apt update
-sudo apt install nginx -y
-sudo service  nginx stop
-sudo service  nginx start
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/site-available/default /etc/ngix/site-enabled/default
 sudo service  nginx restart
