@@ -10,8 +10,8 @@ if __name__ == "__main__":
     """Python script that, using this REST API,
     for a given employee ID, returns information
     about his/her TODO list progress."""
-    url_user = f"https://jsonplaceholder.typicode.com/users/{id_}"
-    url_todo = f"https://jsonplaceholder.typicode.com/todos"
+    url_user = "https://jsonplaceholder.typicode.com/users/{}".format(id_)
+    url_todo = "https://jsonplaceholder.typicode.com/todos"
     response_user = requests.get(url=url_user)
     response_user_json = response_user.json()
     name = response_user_json.get("name", None)
@@ -26,7 +26,7 @@ if __name__ == "__main__":
             if item.get("completed"):
                 completed_tasks_number += 1
                 completed_tasks.append(item.get("title", None))
-    print(f"Employee {name} is done with tasks\
-({completed_tasks_number}/{total_tasks}):")
+    print("Employee {} is done with tasks\
+({}/{}):".format(name, completed_tasks_number, total_tasks))
     for com in completed_tasks:
-        print(f"\t {com}")
+        print("\t {}".format(com))
