@@ -27,6 +27,6 @@ if __name__ == "__main__":
                 completed_tasks_number += 1
                 completed_tasks.append(item.get("title", None))
     print(f"Employee {name} is done with tasks\
-          ({completed_tasks_number}/{total_tasks}):")
+({completed_tasks_number}/{total_tasks}):")
     for com in completed_tasks:
-        print(f"\t{com}")
+        print(f"\t {com}")
