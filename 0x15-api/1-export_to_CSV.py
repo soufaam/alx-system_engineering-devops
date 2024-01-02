@@ -13,7 +13,7 @@ def exportdata(id_):
     url_todo = "https://jsonplaceholder.typicode.com/todos"
     response_user = requests.get(url=url_user)
     response_user_json = response_user.json()
-    name = response_user_json.get("name", None)
+    name = response_user_json.get("username", None)
     response_todo = requests.get(url=url_todo)
     response_todo_json = response_todo.json()
     with open(f"{id_}.csv", "w") as csv_file:
