@@ -2,7 +2,7 @@
 """A script contains number_of_subscribers function
 """
 import requests
-from pprint import pprint
+
 
 
 def top_ten(subreddit):
