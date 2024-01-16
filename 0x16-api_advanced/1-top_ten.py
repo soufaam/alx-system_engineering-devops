@@ -4,7 +4,6 @@
 import requests
 
 
-
 def top_ten(subreddit):
     """Print the titles of the first 10 hot posts
     listed for a given subreddit"""
