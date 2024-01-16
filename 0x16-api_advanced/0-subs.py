@@ -9,9 +9,10 @@ def number_of_subscribers(subreddit=None):
 API and returns the number of subscribers
     Args:
         subreddit (String): a given subscribers in Reddit
+    Returns: int value
     """
-    headers = {'User-Agent': 'Script get subreddit Data /1.0'}
-    url = f'https://www.reddit.com/r/{subreddit}/about.json'
+    headers = {'User-Agent': "Mozilla/5.0"}
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     response = requests.get(url=url, headers=headers)
     if response.status_code == 200:
         data_json = response.json()
