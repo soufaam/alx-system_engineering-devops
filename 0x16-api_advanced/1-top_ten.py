@@ -6,23 +6,16 @@ from pprint import pprint
 
 
 def top_ten(subreddit):
-    """function that queries the Reddit API and
-    prints the titles of the first 10 hot posts listed for a given subreddit.
-    Args:
-        subreddit (String): a given subscribers in Reddit
-    Returns: int value
-    """
-    headers = {'User-Agent': "Mozilla/115.5.0"}
-    url = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
-    response = requests.get(url=url, headers=headers)
-    if response.status_code != 404:
-        data_json = response.json()
-        data_parsed = data_json['data']
-        data_list = data_parsed['children']
-        if data_list == []:
-            print(None)
-            return
-        for item in data_list:
-            print(item['data']['title'])
-    else:
+    """Print the titles of the first 10 hot posts
+    listed for a given subreddit"""
+
+    url = "https://www.reddit.com/r/{}/hot/.json?limit=10".format(subreddit)
+    headers = {"User-Agent": "Mozilla/5.0"}
+    resp = requests.get(url=url, headers=headers)
+    if resp.status_code == 404:
         print(None)
+        return
+    subs = resp.json().get("data")
+    for post in subs.get("children"):
+        post_details = post.get("data")
+        print(post_details.get("title"))
