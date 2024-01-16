@@ -14,7 +14,7 @@ API and returns the number of subscribers
     headers = {'User-Agent': "Mozilla/5.0"}
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     response = requests.get(url=url, headers=headers)
-    if response.status_code == 200:
+    if response.status_code != 404:
         data_json = response.json()
         data_parsed = data_json['data']
         return data_parsed.get('subscribers', 0)
