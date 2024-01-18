@@ -1,22 +1,16 @@
 #!/usr/bin/python3
-"""A script contains number_of_subscribers function
-"""
+"""Function to query subscribers on a given Reddit subreddit."""
 import requests
 
 
-def number_of_subscribers(subreddit=None):
-    """A afunction that queries the Reddit
-API and returns the number of subscribers
-    Args:
-        subreddit (String): a given subscribers in Reddit
-    Returns: int value
-    """
-    headers = {'User-Agent': "Mozilla/5.0"}
-    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    response = requests.get(url=url, headers=headers, allow_redirects=False)
-    if response.status_code != 404:
-        data_json = response.json()
-        data_parsed = data_json['data']
-        return data_parsed.get('subscribers', 0)
-    else:
+def number_of_subscribers(subreddit):
+    """Return the total number of subscribers on a given subreddit."""
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/soufaam_)"
+    }
+    response = requests.get(url, headers=headers, allow_redirects=False)
+    if response.status_code == 404:
         return 0
+    results = response.json().get("data")
+    return results.get("subscribers")
