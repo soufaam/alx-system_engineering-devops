@@ -3,7 +3,7 @@ server {
     listen [::]:80;
     add_header X-Served-By 389038-web-01;
 
-    server_name 127.0.0.1;
+    server_name 54.152.81.82;
 
     location /airbnb-onepage/ {
         include proxy_params;
